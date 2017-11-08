@@ -1,9 +1,25 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"class=:"w3-panel"><%= notice %></p>
 
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+<div class="panel panel-default">
+	
+<div class="panel-heading">cart</div>
+
+<div class="panel-body">
+
+	
+</div>
+
+<div class="panel-footer">
+	
+<%= link_to 'Edit', edit_cart_path(@cart) ,class: "btn-xs btn-danger" %> |
+<%= link_to 'Back', carts_path ,class:"btn-xs btn-danger" %> 
+<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Keep Shopping', store_index_url , class:"btn btn-primary" %>
 <ul>
 	  <% @cart.line_items.each do |item| %>
-	    <li><%= item.product.title %></li>
+		 <li><%= item.quantity %> &times; <%= item.product.title %></li>
+	  	
+	  	</tbody>
+	  	
 	  <% end %>
 	</ul>
